@@ -1,0 +1,92 @@
+<!-- myapp/templates/employee_confirm_delete.html -->
+<!-- myapp/templates/employee_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Container for the registration box */
+        .register-box {
+            max-width: 360px;
+            margin: 60px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        /* Form styling */
+        .register-box form {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        /* Input fields and button styling */
+        .register-box input[type="text"],
+        .register-box input[type="password"],
+        .register-box input[type="email"] {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .register-box input[type="text"]:focus,
+        .register-box input[type="password"]:focus,
+        .register-box input[type="email"]:focus {
+            border-color: #007BFF;
+        }
+
+        /* Submit button styling */
+        .register-box input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-box input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Simple responsive adjustments */
+        @media (max-width: 480px) {
+            .register-box {
+                padding: 15px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 600px; margin: 0 auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; text-align: center;">
+    <h1 style="color: #e74c3c; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; margin-bottom: 20px;">Delete Employee</h1>
+
+    <p style="font-size: 18px; margin-bottom: 30px;">
+        Are you sure you want to delete <strong>{{ employee.first_name }} {{ employee.last_name }}</strong>?
+    </p>
+
+    <form method="post" style="display: flex; justify-content: center; gap: 20px;">
+        {% csrf_token %}
+        <button type="submit" style="padding: 10px 20px; background-color: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            Yes, delete
+        </button>
+        <a href="{% url 'employee-list' %}" style="padding: 10px 20px; background-color: #95a5a6; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; display: inline-block;">
+            Cancel
+        </a>
+    </form>
+</div>
+</body>
+</html>
+
+
